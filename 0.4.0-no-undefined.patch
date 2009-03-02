@@ -1,0 +1,20 @@
+--- origsrc/gst-buzztard-0.4.0/configure.ac	2008-10-01 15:36:21.000000000 -0500
++++ src/gst-buzztard-0.4.0/configure.ac	2009-03-01 18:30:27.593750000 -0600
+@@ -188,7 +188,7 @@ plugindir="\$(libdir)/gstreamer-$GST_MAJ
+ AC_SUBST(plugindir)
+ GST_PLUGIN_CFLAGS="$DEBUG_CFLAGS $COVERAGE_CFLAGS"
+ AC_SUBST(GST_PLUGIN_CFLAGS)
+-GST_PLUGIN_LDFLAGS="-module -avoid-version -export-symbols-regex '[_]*(gst_|Gst|GST_).*' $COVERAGE_LIBS"
++GST_PLUGIN_LDFLAGS="-module -avoid-version -no-undefined -export-symbols-regex '[_]*(gst_|Gst|GST_).*' $COVERAGE_LIBS"
+ AC_SUBST(GST_PLUGIN_LDFLAGS)
+ 
+ 
+--- origsrc/gst-buzztard-0.4.0/libgstbuzztard/Makefile.am	2008-09-24 12:57:10.000000000 -0500
++++ src/gst-buzztard-0.4.0/libgstbuzztard/Makefile.am	2009-03-01 18:25:44.140625000 -0600
+@@ -34,5 +34,5 @@ libgstbuzztardinclude_HEADERS = \
+ 
+ 
+ libgstbuzztard_la_LIBADD = $(BASE_DEPS_LIBS)
+-libgstbuzztard_la_LDFLAGS = -version-info @GSTBT_VERSION_INFO@
++libgstbuzztard_la_LDFLAGS = -version-info @GSTBT_VERSION_INFO@ -no-undefined
+ 

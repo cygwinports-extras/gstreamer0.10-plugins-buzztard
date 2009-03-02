@@ -1,0 +1,13 @@
+DESCRIPTION="Buzztard GStreamer components"
+HOMEPAGE="http://www.buzztard.org/"
+SRC_URI="mirror://sourceforge/buzztard/gst-buzztard-${PV}.tar.gz"
+PATCH_URI="0.4.0-no-undefined"
+
+SRC_DIR="gst-buzztard-${PV}"
+
+PKG_NAMES="${PN} libgstbuzztard0 libgstbuzztard-devel"
+gstreamer0_10_plugins_buzztard_CONTENTS="usr/lib/gstreamer-0.10/ usr/share/"
+libgstbuzztard0_CONTENTS="usr/bin/cyggstbuzztard-0.dll"
+libgstbuzztard_devel_CONTENTS="usr/include/ usr/lib/pkgconfig/"
+
+CYGCONF_ARGS="--enable-gtk-doc --disable-static"
